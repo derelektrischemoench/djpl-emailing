@@ -40,7 +40,8 @@ class HtmlEmail(EmailMessage):
         kwargs['fail_silently'] = False
         try:
             super(HtmlEmail, self).send(*args, **kwargs)
-        except Exception:
+        except Exception as e:
+            raise e #do NOT COMMIT THIS FILE
             # this is a fallback trying to ensure that emails are sent out in case something goes
             # wrong with default implementation.
             if settings.FALLBACK_EMAIL != 'webmaster@localhost':
