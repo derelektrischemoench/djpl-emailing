@@ -24,12 +24,15 @@ class HtmlEmail(EmailMessage):
     def __init__(self, *args, **kwargs):
         template = kwargs.pop('template')
         context = kwargs.pop('context')
-
         context['brand_bg'] = settings.EMAIL_BRAND_BG
         context['body_bg'] = settings.EMAIL_BODY_BG
         context['brand_color'] = settings.EMAIL_BRAND_COLOR
         context['link_color'] = settings.EMAIL_LINK_COLOR
         context['footer_content'] = settings.EMAIL_FOOTER_CONTENT
+        context['logo_src'] = settings.EMAIL_LOGO_SRC
+        context['logo_href'] = settings.EMAIL_LOGO_HREF
+        context['logo_alt'] = settings.EMAIL_LOGO_ALT
+
 
         kwargs['body'] = premailer.transform(get_template(template).render(Context(context)))
 
