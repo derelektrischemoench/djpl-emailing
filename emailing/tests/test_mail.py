@@ -25,7 +25,7 @@ class SignupMailTest(NoMigrationsTestCase):
 
         msg = HtmlEmail(
             subject='test',
-            template='new_emailv2/base.html',
+            template='test_signup.html',
             context=context,
             to=['chris.bader@schnapptack.de', ]
         )
