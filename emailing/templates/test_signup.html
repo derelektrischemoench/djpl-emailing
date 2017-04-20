@@ -1,0 +1,24 @@
+{% extends 'new_emailv2/base.html' %}
+{% load i18n %}
+
+{% block message_main_content %}
+    Welcome, new user. Thank you for your registration, please klick the link below to complete your signup process.
+    <table width="100%"><!--This is required to give 100% width on mobile devices-->
+        <tr>
+            <td height="50" class="em_height">&nbsp;</td><!-- Adds space -->
+        </tr>
+        <table>
+            <tr>
+                <td>
+                    <!--Call to action-->
+                    {% include "new_emailv2/includes/btn.html" with label="Complete registration" href="http://google.de/signup.html" %}
+                </td>
+        </table>
+        <td>
+            {% include "new_emailv2/includes/datatable.html" %}
+        </td>
+        </tr>
+
+    </table>
+
+{% endblock %}
