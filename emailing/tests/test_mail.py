@@ -4,6 +4,7 @@ from django.test import TestCase, override_settings
 from emailing import emails
 from emailing.emails import HtmlEmail
 from django_productline.testingutils import NoMigrationsTestCase
+from premailer import transform
 
 
 class SignupMailTest(NoMigrationsTestCase):
@@ -26,10 +27,7 @@ class SignupMailTest(NoMigrationsTestCase):
             subject='test',
             template='new_emailv2/base.html',
             context=context,
-            to=['chris.bader@schnapptack.de',]
+            to=['chris.bader@schnapptack.de', ]
         )
         msg.content_subtype = 'html'
         msg.send(fail_silently=False)
-
-        #self.assertEqual(len(mail.outbox), 1)
-        #self.assertEqual(mail.outbox[0].subject, "Subject")

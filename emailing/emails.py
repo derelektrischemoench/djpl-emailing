@@ -33,11 +33,9 @@ class HtmlEmail(EmailMessage):
         context['logo_href'] = settings.EMAIL_LOGO_HREF
         context['logo_alt'] = settings.EMAIL_LOGO_ALT
 
-
         kwargs['body'] = premailer.transform(get_template(template).render(Context(context)))
 
         super(HtmlEmail, self).__init__(*args, **kwargs)
-
 
     def send(self, *args, **kwargs):
         kwargs['fail_silently'] = False
