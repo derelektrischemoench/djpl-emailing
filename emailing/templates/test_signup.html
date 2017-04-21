@@ -1,13 +1,12 @@
 {% extends 'new_emailv2/base.html' %}
 {% load i18n %}
 
-{% block message_main_content %}
-    Welcome, new user. Thank you for your registration, please klick the link below to complete your signup process.
+{% block content %}
+    Welcome, {{ username }}. Thank you for your registration, please klick the link below to complete your signup process.
 
 
-{% include "new_emailv2/includes/btn_related_markup_top.html" %}
-{% include "new_emailv2/includes/btn.html" with label="Complete registration" href="http://google.de/signup.html" %}
-{% include "new_emailv2/includes/btn_related_markup_bottom.html" %}
+    {% include "new_emailv2/includes/btn.html" with label="Complete registration" href="http://google.de/signup.html" %}
+    {% include "new_emailv2/includes/datatable.html" %}
 
 
 {% endblock %}

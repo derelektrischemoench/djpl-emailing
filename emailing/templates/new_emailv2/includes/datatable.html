@@ -1,33 +1,52 @@
+<!--Spacer-->
 <tr>
     <td height="34" class="em_height">&nbsp;</td>
 </tr>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" >
-  <tr height="30px" margin-top="50px"  >
-    <td style="border-bottom:1px solid #5959f1"> <font color="#5959f1">Heading 1</font></td>
-    <td style="border-bottom:1px solid #5959f1"><font color="#5959f1">Heading 2</font></td>
-    <td style="border-bottom:1px solid #5959f1"><font color="#5959f1">Heading 3</font></td>
-  </tr>
-<repeater>
-<layout label="White row">
-  <tr>
-    <td><multiline label="Heading 1 text">Text here</multiline></td>
-    <td><multiline label="Heading 2 text">Text here</multiline></td>
-    <td><multiline label="Heading 3 text">Text here</multiline></td>
-  </tr>
-</layout>
-<layout label="Grey row">
-  <tr>
-    <td bgcolor="#CCCCCC"><multiline label="Heading 1 text">Text here</multiline></td>
-    <td bgcolor="#CCCCCC"><multiline label="Heading 2 text">Text here</multiline></td>
-    <td bgcolor="#CCCCCC"><multiline label="Heading 3 text">Text here</multiline></td>
-  </tr>
-</layout>
-<layout label="Full span row">
-  <tr>
-    <td bgcolor="#FFFFFF"><multiline label="Full row text"></multiline></td>
-    <td bgcolor="#FFFFFF"><multiline label="Heading 3 text">Text here</multiline></td>
 
-  </tr>
-</layout>
-</repeater>
+<table width="400" border="0" cellspacing="0" cellpadding="0" class="datatable">
+    <tr height="30px" margin-top="50px">
+        <th style="border-bottom:1px solid #5959f1"><font color="#5959f1">Name</font></th>
+        <th style="border-bottom:1px solid #5959f1"><font color="#5959f1">Last Name</font></th>
+        <th style="border-bottom:1px solid #5959f1"><font color="#5959f1">Adress</font></th>
+    </tr>
+    <repeater>
+        <layout label="White row">
+            <tr>
+                <td>
+                    <multiline label="Heading 1 text">{{ fname }}</multiline>
+                </td>
+                <td>
+                    <multiline label="Heading 2 text">{{ lname }}</multiline>
+                </td>
+                <td>
+                    <multiline label="Heading 3 text">{{ adress }} {{ number }}</multiline>
+                </td>
+            </tr>
+        </layout>
+        <layout label="Grey row">
+            <tr>
+                <td bgcolor="#CCCCCC">
+                    <multiline label="Heading 1 text">{{ fname }}</multiline>
+                </td>
+                <td bgcolor="#CCCCCC">
+                    <multiline label="Heading 2 text"> {{ lname }}</multiline>
+                </td>
+                <td bgcolor="#CCCCCC">
+                    <multiline label="Heading 3 text">{{ adress }} {{ number }}</multiline>
+                </td>
+            </tr>
+        </layout>
+        <layout label="Full span row">
+            <tr>
+                <td bgcolor="#FFFFFF">
+                    <multiline label="Full row text"></multiline>
+                </td>
+                <td bgcolor="#FFFFFF">
+                    <multiline label="Heading 3 text">Text here</multiline>
+                </td>
+
+            </tr>
+        </layout>
+    </repeater>
 </table>
+
