@@ -2,10 +2,10 @@ import unittest
 from django.core import mail
 from django.test import TestCase, override_settings
 from emailing import emails
-from emailing.emails import HtmlEmail
 from django_productline.testingutils import NoMigrationsTestCase
 from premailer import transform
-from emailing.emails import send
+from emailing import emails
+from emailing.emails import HtmlEmail
 
 
 class SignupMailTest(NoMigrationsTestCase):
@@ -13,7 +13,7 @@ class SignupMailTest(NoMigrationsTestCase):
     This is a helper test class which allows us to programmatically send emails for proper viewing
     """
     @override_settings(EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend')
-    def test_send_email(self, **kwargs):
+    def test_send_email(self):
         from django.conf import settings
         context = dict(
             brand_bg='#fff',
@@ -21,7 +21,6 @@ class SignupMailTest(NoMigrationsTestCase):
             brand_color='#575757',
             link_color='#2244DD',
             footer_content='Welcome, this is a mail',
-            username=kwargs.pop('username')
         )
 
         msg = HtmlEmail(
